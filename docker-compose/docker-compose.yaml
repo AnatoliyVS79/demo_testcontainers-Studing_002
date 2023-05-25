@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  test_db:
+    container_name: test_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    image: postgres:15-alpine3.18
