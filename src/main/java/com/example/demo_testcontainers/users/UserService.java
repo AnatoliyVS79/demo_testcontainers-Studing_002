@@ -34,12 +34,8 @@ public class UserService {
 
     public User editUser(UUID uuid, String login, String email) {
         final User currentUser = loadUserById(uuid);
-        try {
-            assert currentUser.getId() != null;
-            return userRepository.save(new User(uuid, login, email));
-        } catch (Exception e) {
-            throw new RuntimeException("Не получилось отредактировать пользователя");
-        }
+        assert currentUser.getId() != null;
+        return userRepository.save(new User(uuid, login, email));
     }
 
     public void deleteUserById(UUID id) {
